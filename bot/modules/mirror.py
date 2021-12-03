@@ -396,7 +396,7 @@ def _mirror(bot, update, isTar=False, extract=False, isZip=False, isQbit=False, 
         
         
         
-        def mirror(update, context):
+def mirror(update, context):
     _mirror(context.bot, update)
 
 def tar_mirror(update, context):
