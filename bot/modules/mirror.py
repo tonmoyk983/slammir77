@@ -53,7 +53,7 @@ class MirrorListener(listeners.MirrorListeners):
         self.pswd = pswd
 
 
-def onDownloadStarted(self):
+    def onDownloadStarted(self):
         pass
 
     def onDownloadProgress(self):
