@@ -52,7 +52,6 @@ class MirrorListener(listeners.MirrorListeners):
         self.isLeech = isLeech
         self.pswd = pswd
 
-
     def onDownloadStarted(self):
         pass
 
