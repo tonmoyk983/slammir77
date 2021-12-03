@@ -43,7 +43,7 @@ ariaDlManager.start_listener()
 
 
 class MirrorListener(listeners.MirrorListeners):
-    def __init__(self, bot, update, pswd, isTar=False, extract=False, isZip=False, isQbit=False, isLeech=False):
+   def __init__(self, bot, update, pswd, isTar=False, extract=False, isZip=False, isQbit=False, isLeech=False):
         super().__init__(bot, update)
         self.isTar = isTar
         self.extract = extract
@@ -52,14 +52,14 @@ class MirrorListener(listeners.MirrorListeners):
         self.isLeech = isLeech
         self.pswd = pswd
 
-    def onDownloadStarted(self):
+   def onDownloadStarted(self):
         pass
 
-    def onDownloadProgress(self):
+   def onDownloadProgress(self):
         # We are handling this on our own!
         pass
 
-    def clean(self):
+   def clean(self):
         try:
             aria2.purge()
             get_client().torrents_delete(torrent_hashes="all", delete_files=True)
@@ -135,7 +135,7 @@ class MirrorListener(listeners.MirrorListeners):
         
         
         
-        def onDownloadError(self, error):
+   def onDownloadError(self, error):
         error = error.replace('<', ' ')
         error = error.replace('>', ' ')
         with download_dict_lock:
@@ -159,15 +159,15 @@ class MirrorListener(listeners.MirrorListeners):
             
             
             
-     def onUploadStarted(self):
+   def onUploadStarted(self):
         pass
 
-    def onUploadProgress(self):
+   def onUploadProgress(self):
         pass
 
 
 
-def onUploadComplete(self, link: str, size, files, folders, typ):
+   def onUploadComplete(self, link: str, size, files, folders, typ):
         with download_dict_lock:
             msg = f'<b>➡️ 📂Filename : </b><code>{download_dict[self.uid].name()}</code>\n<b>➡️ 📦Size : </b><code>{size}</code>'
             if os.path.isdir(f'{DOWNLOAD_DIR}/{self.uid}/{download_dict[self.uid].name()}'):
@@ -229,7 +229,7 @@ def onUploadComplete(self, link: str, size, files, folders, typ):
             update_all_messages()
             
             
-            def onUploadError(self, error):
+   def onUploadError(self, error):
         e_str = error.replace('<', '').replace('>', '')
         with download_dict_lock:
             try:
@@ -256,8 +256,7 @@ def onUploadComplete(self, link: str, size, files, folders, typ):
             
             
             
-            
-            def _mirror(bot, update, isTar=False, extract=False, isZip=False, isQbit=False, isLeech=False):
+def _mirror(bot, update, isTar=False, extract=False, isZip=False, isQbit=False, isLeech=False):
     mesg = update.message.text.split('\n')
     message_args = mesg[0].split(' ')
     name_args = mesg[0].split('|')
